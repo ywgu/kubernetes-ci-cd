@@ -14,11 +14,11 @@ node {
 
     stage "Build"
     
-        sh "docker build -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
+        sh "docker build -v /var/run/docker.sock:/var/run/docker.sock-t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
     
     stage "Push"
 
-        sh "docker push ${imageName}"
+        sh "docker push -v /var/run/docker.sock:/var/run/docker.sock ${imageName}"
 
     stage "Deploy"
 
