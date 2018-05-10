@@ -14,7 +14,7 @@ node {
 
     stage "Build"
     
-        sh "docker build -v /var/run/docker.sock:/var/run/docker.sock-t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
+        sh "docker build -v /var/run/docker.sock:/var/run/docker.sock -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
     
     stage "Push"
 
